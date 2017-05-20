@@ -1,0 +1,260 @@
+{% extends "base_user.html" %}
+
+{% block content %}
+
+
+
+<div class="container-fluid" style="position: absolute; top: 30%; left: 1%; height:55%; width: 16%; overflow: scroll; border: 0px solid gray;">
+	<small>
+
+	<p>Here is a complete list of the measurements that are being used in the
+	instructions for the basic blocks. You can choose to get all your
+	measurements taken and write them into the table right away, but
+	you can also wait to get your measurements taken until you need them
+	for a particular basic block. Several of the measurements appear in
+	several of the instructions, but when you have entered a measurement
+	it is stored in the table and you should only take the same
+	measurement once. Remember to get another person to take your
+	measurements according to our instructions for taking measurements.
+	</p>
+	<p>Click on the question mark if you are in doubt about how the various
+	measurements is taken, or see the full instruction in the menu Studio
+	How to take measurements</p>
+	</small>
+</div>
+<style media="screen">
+	input {
+			width: 240px;
+			color: gray;
+		}
+</style>
+
+<div  class="container-fluid" style=" position: absolute;  top: 18%; left: 22%; height:2%; width: 100%; overflow: scroll; border: 1px solid gray; ">
+	{% csrf_token %}
+	{{ formset.management_form }}
+	{% for form in formset %}
+	{{forloop.counter}}
+			{% for field in form %}
+				{% if forloop.counter == 42 %}
+									{{ field.label_tag }}{{ field }}{{forloop.counter}}
+					{% endif %}
+			{% endfor %}
+ {% endfor %}
+ </div>
+
+	<style media="screen">
+		input {
+				width: 40px;
+				color: gray;
+			}
+	</style>
+	<center>
+<div  class="container-fluid" style="position: absolute; top: 20%;  left: 17%; height:2%; width: 40%; overflow: scroll; border: 0px solid gray; ">
+  Measurments for the basic blocks:</div>
+  <div  class="container-fluid" style="position: absolute;  top: 20%; left: 60%; height:2%; width: 40%; overflow: scroll; border: 0px solid gray; ">
+    Measurments for the basic sleeves:</div>
+  </center>
+<div class="container-fluid" style="position: absolute; top: 20%; left: 17%; height:75%; width: 75%; overflow: scroll; border: 1px solid gray;">
+
+<div class="container-fluid" style="position: absolute; top: 5%; left: 0%; height:95%; width: 24%; overflow: scroll; border: 0px solid gray;">
+
+  <form action="home/header.html" method="post" >
+		{{ formset.management_form }}
+  {% csrf_token %}
+
+  {% for form in formset %}
+
+      {% for field in form %}
+        {% if forloop.counter < 16 %}
+          <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+              <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+                  {{ field.label_tag }}
+              </div>
+              <div class="container-fluid" style="position: absolute; left: 30%;  width: 70%; ">
+                  {{ field }}cm
+              </div>
+          </div>
+          {% endif %}
+      {% endfor %}
+
+
+ {% endfor %}
+</div>
+  <div class="container-fluid" style="position: absolute; top: 5%; left: 25%; height:95%; width: 24%; overflow: scroll; border: 0px solid gray;">
+    {% csrf_token %}
+		{{ formset.management_form }}
+
+    {% for form in formset %}
+        {% for field in form %}
+          {% if forloop.counter > 15 and forloop.counter < 26 %}
+            <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+                <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+                    {{ field.label_tag }}
+                </div>
+                <div class="container-fluid" style="position: absolute; left: 30%;  width: 70%; ">
+                    {{ field }}cm
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+
+   {% endfor %}
+
+</div>
+    <div class="container-fluid" style="position: absolute; top: 2%; left: 50%; height:95%; width: 24%; overflow: scroll; border: 0px solid gray;">
+<p>General measurments
+for all basic sleeves:</P>
+      {% csrf_token %}
+			{{ formset.management_form }}
+
+      {% for form in formset %}
+
+          {% for field in form %}
+            {% if forloop.counter > 25 and forloop.counter < 30 %}
+              <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+                  <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+                      {{ field.label_tag }}
+                  </div>
+                  <div class="container-fluid" style="position: absolute; left: 30%;  width: 70%; ">
+                      {{ field }}cm
+                  </div>
+              </div>
+              {% endif %}
+          {% endfor %}
+{% endfor %}
+{% csrf_token %}
+{% csrf_token %}
+{{ formset.management_form }}
+
+<p>Specific measurments for the basic two-piece outerwear sleeve:</p>
+{% for form in formset %}
+
+    {% for field in form %}
+      {% if forloop.counter >= 30 and forloop.counter <= 31 %}
+        <div class="container-fluid" style=" left: 5%; height: 20px; width: 100%;  border: 0px solid gray;">
+            <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+                {{ field.label_tag }}
+            </div>
+            <div class="container-fluid" style="position: absolute; left: 30%;  width: 70%; ">
+                {{ field }}cm
+            </div>
+
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{% csrf_token %}
+{{ formset.management_form }}
+
+<p>Specific measurments for the basic two-piece outerwear sleeve:</p>
+{% for form in formset %}
+
+    {% for field in form %}
+      {% if forloop.counter >= 32 and forloop.counter <= 33 %}
+        <div class="container-fluid" style=" left: 10%; height: 20px; width: 100%;  border: 0px solid gray;">
+            <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+                {{ field.label_tag }}
+            </div>
+            <div class="container-fluid" style="position: absolute; left: 30%;  width: 70%; ">
+                {{ field }}cm
+            </div>
+
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{{ formset.management_form }}
+
+{% for form in formset %}
+<p>Specific measurments for the basic dress sleeve:</p>
+    {% for field in form %}
+      {% if forloop.counter >= 34 and forloop.counter <= 35 %}
+        <div class="container-fluid" style=" left: 10%; height: 20px; width: 100%;  border: 0px solid gray;">
+            <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+                {{ field.label_tag }}
+            </div>
+            <div class="container-fluid" style="position: absolute; left: 30%;  width: 70%; ">
+                {{ field }}cm
+            </div>
+
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+</div>
+
+
+
+<div class="container-fluid" style="position: absolute; top: 2%; left: 75%; height:95%; width: 25%; overflow: scroll; border: 0px solid gray;">
+<p>Specific measurments for the basic shirt sleeve:</p>
+      {% csrf_token %}
+			{{ formset.management_form }}
+
+      {% for form in formset %}
+
+          {% for field in form %}
+            {% if forloop.counter >= 36  and forloop.counter <= 37  %}
+              <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+                  <div class="container-fluid" style="position: absolute; left: 0%;  width: 35%; ">
+                      {{ field.label_tag }}
+                  </div>
+                  <div class="container-fluid" style="position: absolute; left: 30%;  width: 65%; ">
+                      {{ field }}cm
+                  </div>
+
+
+              </div>
+              {% endif %}
+          {% endfor %}
+     {% endfor %}
+     <p>Specific measurments for the basic sweatshirt sleeve:</p>
+           {% csrf_token %}
+					 {{ formset.management_form }}
+
+           {% for form in formset %}
+
+               {% for field in form %}
+                 {% if forloop.counter >= 38  and forloop.counter <= 39  %}
+                   <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+                       <div class="container-fluid" style="position: absolute; left: 0%;  width: 35%; ">
+                           {{ field.label_tag }}
+                       </div>
+                       <div class="container-fluid" style="position: absolute; left: 30%;  width: 65%; ">
+                           {{ field }}cm
+                       </div>
+                   </div>
+                   {% endif %}
+               {% endfor %}
+          {% endfor %}
+      <p>Specific measurments for the basic one-piece oversize coat sleeve:</p>
+      {% csrf_token %}
+			{{ formset.management_form }}
+
+      {% for form in formset %}
+
+          {% for field in form %}
+            {% if forloop.counter >= 40  and forloop.counter <= 41 %}
+              <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+                  <div class="container-fluid" style="position: absolute; left: 0%;  width: 35%; ">
+                      {{ field.label_tag }}
+                  </div>
+                  <div class="container-fluid" style="position: absolute; left: 30%;  width: 65%; ">
+                      {{ field }}cm
+                  </div>
+              </div>
+              {% endif %}
+          {% endfor %}
+     {% endfor %}
+     </div>
+		 {{ formset.management_form }}
+
+<div class="container-fluid" style="position: absolute; bottom: 20%; left: 30%;  width: 50%; ">
+<input type="submit" value="Submit" style="width:100%; font-size: 100%;"/>
+
+
+</div>
+</form>
+	</div>
+
+{% endblock %}

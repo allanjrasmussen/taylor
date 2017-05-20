@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+a {
+  font-size: 10px;
+}
+</style>
+</head>
+<body>
+
+
+  <div class="dropdown">
+    <button class="button" type="button" data-toggle="dropdown">VARIATIONS OF BASIC
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a tabindex="-1" href="{% url 'drop01' %}">VIEW ALL</a></li>
+
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">DRESSES <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a style="font-size: 10px;" tabindex="-1" href="#">A-LINE DRESS</a></li>
+          <li><a tabindex="-1" href="#">PRINCESS CUT DRESS 1</a></li>
+          <li><a tabindex="-1" href="#">PRINCESS CUT DRESS 2</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">OUTRWEAR <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">A-LINE COAT</a></li>
+          <li><a tabindex="-1" href="#">COAT WITH DARTS 1</a></li>
+          <li><a tabindex="-1" href="#">COAT WITH SIDEPANEL</a></li>
+          <li><a tabindex="-1" href="#">OVERSIZED COAT</a></li>
+          <li><a tabindex="-1" href="#">PRINCESS CUT COAT 1</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">SKIRTS <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">FULL CIRCLE SKIRT</a></li>
+          <li><a tabindex="-1" href="#">HALF CIRCLE SKIRT 1</a></li>
+          <li><a tabindex="-1" href="#">QUARTER CIRKLE SKIRT 2</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">SHIRTS & SWWEATSHIRTS <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">1st TOM</a></li>
+          <li><a tabindex="-1" href="#">2nd TOM</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">TROUSERS <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">1st TOM</a></li>
+          <li><a tabindex="-1" href="#">2nd TOM</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+
+
+
+
+</body>
+</html>

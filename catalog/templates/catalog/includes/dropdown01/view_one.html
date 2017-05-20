@@ -1,0 +1,91 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<!--div class="container-fluid" style="position: absolute;  top: 15%; left: 1%; height:75%; width: 20%; overflow: scroll; border: 0px solid gray;">
+
+<small>
+{% for pattern in queryset  %}
+    <h3>{{ pattern.title }}</h3> {{ pattern.summary|linebreaks }}
+{% endfor %}
+</small>
+</div-->
+
+<div class="container-fluid" style="position: absolute; top: 15%; left: 1%; height:85%; width: 98%; overflow: scroll; border: 0px solid gray;">
+
+  <div class="container-fluid" style="position: absolute; top: 0%; left: 31%; height:50%; width: 20%; overflow: scroll; border: 0px solid gray;">
+      {% for pattern in queryset  %}
+        {% for pic in pattern.illustration.all %}
+        {% if  forloop.first %}
+        <center>
+        <figure style=" float: right; width: 98%;  margin: 5px; border: 0px solid #73AD21;%;">
+        <img src="/static/media/{{ pic.picture.url }}" alt="/static/media/{{ pic.picture.url }}"
+            width='95%' style="display: inline-block; border-radius: 1%;border: 0px solid #73AD21;">
+        <figcaption>{{ pic.name }}</figcaption>
+        </figure>
+      </center>
+        {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  <div class="container-fluid" style="position: absolute; z-index:-1; top: 0%; left: 20%; height:50%; width: 10%; overflow: scroll; border: 0px solid gray;">
+        {% for pattern in queryset  %}
+          {% for pic in pattern.illustration.all %}
+        {% if not forloop.first and not forloop.last %}
+        <figure style=" float: left; width: 99%;  margin: 5px; border: 0px solid #73AD21;%;">
+        <img src="/static/media/{{ pic.picture.url }}" alt="/static/media/{{ pic.picture.url }}"
+            width='95%' style="display: inline-block; border-radius: 1%;border: 0px solid #73AD21;  z-index:-1;">
+        </figure>
+{% endif %}
+        {% if not forloop.last %} {% endif %}
+        {% endfor %}
+      {% endfor %}
+  </div>
+
+
+  <div class="container-fluid" style="position: absolute; top: 0%; right: 10%;
+      height:100%; width:40%; overflow: scroll; border: 0px solid gray;">
+    {% for pattern in queryset  %}
+    <div class="container-fluid" style="position: absolute; top: 0%; right: 0%;
+            height10%; width: 95%; overflow: scroll; border: 1px solid gray;">
+    <center>
+        <h3>{{ pattern.title }}</h3>
+        Price: €15
+    </center>
+    </div>
+
+    <center>
+    <div class="dropdown" style="position: absolute; top: 10%; right:38%;
+              border: 0px solid white;">
+
+
+      <button  class="button">Select Language<span class="caret"></span></button>
+      <div class="dropdown-content" align="left" style="min-width:100px; background-color: #ffffff;">
+
+          <a class="drop" style="text-decoration: none;" href="#">Dansk</a>
+          <a class="drop" style="text-decoration: none;" href="#">English</a>
+          <a class="drop"   style="text-decoration: none;" href="#">Deutsch</a>
+
+      </div>
+
+    </div>
+    </center>
+    <div class="container-fluid" style="position: absolute; top: 15%; right: 0%;
+          height:85%; width: 95%; overflow: scroll; border: 0px solid gray;">
+
+             {{ pattern.summary|linebreaks }}
+        {% endfor %}
+        {% for pattern in queryset  %}
+          {% for pic in pattern.illustration.all %}
+        {% if  forloop.last %}
+        <img src="/static/media/{{ pic.picture.url }}" alt="/static/media/{{ pic.picture.url }}"
+            width='95%' style="display: inline-block; border-radius: 1%;border: 0px solid #73AD21;">
+        {% endif %}
+                {% if not forloop.last %} {% endif %}
+                {% endfor %}
+              {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

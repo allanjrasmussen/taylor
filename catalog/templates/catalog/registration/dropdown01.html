@@ -1,0 +1,30 @@
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+
+  <div class="dropdown">
+  <button type="button" class="dropbtn btn-default navbar-btn">BASIC BLOCKS</button>
+  <div class="dropdown-content" align="left">
+    <small>
+    <button type="button" class="button"><a style="text-decoration: none;" href="{% url 'basic' %}">VIEW ALL</a></button><br>
+    <hr>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC DRESS BLOCK	</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC DRESS SLEEVE</a></button><br>
+    <hr>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC SHIRT/SWEATSHIRT BLOCK</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC SHIRT SLEEVE</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC SWEATSHIRT SLEEVE</a></button><br>
+    <hr>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC SKIRT BLOCK</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC TROUSER BLOCK</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC COAT BLOCK</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC JACKET BLOCK</a></button><br>
+    <hr>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC ONE-PIECE OUTERWEAR SLEEVE</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC TWO-PIECE OUTERWEAR SLEEVE</a></button><br>
+    <button type="button" class="button"><a style="text-decoration: none;" href="">BASIC ONE-PIECE OVERSIZE COAT SLEEVE</a></button><br>
+  </small>
+  </div>
+</div>
+
+{% endblock %}

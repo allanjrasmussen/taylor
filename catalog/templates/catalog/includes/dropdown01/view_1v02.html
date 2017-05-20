@@ -1,0 +1,120 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load staticfiles %}
+  <!--link rel="stylesheet" type="text/css" href="{% static 'css/modal_img.css' %}"-->
+
+<div class="container-fluid" style="position: absolute; top: 15%; left: 1%; height:85%; width: 98%; overflow: scroll; border: 1px solid gray;">
+
+
+
+    <div style="position: relative; top:0px; left:0px; width:15%; height:50%; overflow: scroll; border: 0px solid gray;">
+
+      {% for image in images %}
+
+      <img src="/static/{{ image }}"  style="width:100%"
+        onclick="openModal();currentSlide({{ forloop.counter }})" class="hover-shadow cursor"><br>
+
+      {% endfor %}
+    </div>
+  <img src="/static/{{ images.0 }}" style="position: absolute; z-index: -1; padding: 2px; top:0px; left:15%; width:35%; height:50%; overflow: scroll; border: 0px solid red;"">
+      <div id="myModal" class="modal" style="position: absolute;   padding-top: 0px; top:0px; left:15%; width:35%; height:50%; overflow: scroll; border: 0px solid red; z-index:-1;">
+
+        <div class="modal-content">
+
+          {% for image in images %}
+
+          <div class="mySlides">
+            {% if forloop.first %}
+            <img src="/static/{{ image }}" style="display:block; width:100%;  z-index:-1;" class="hover-shadow cursor">
+            {% endif %}
+            <img src="/static/{{ image }}" style="width:100%; z-index:-1;" class="hover-shadow cursor">
+          </div>
+          {% endfor %}
+        </div>
+
+
+</div>
+
+<script>
+
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+
+  slides[slideIndex-1].style.display = "block";
+
+}
+</script>
+
+
+
+
+
+
+
+  <div class="container-fluid" style="position: absolute; top: 0%; right: 10%;
+      height:100%; width:40%; overflow: scroll; border: 0px solid gray;">
+
+    <div class="container-fluid" style="position: absolute; top: 0%; right: 0%;
+            height10%; width: 95%; overflow: scroll; border: 1px solid gray;">
+    <center>
+        <h3>{{ title }}</h3>
+        Price: {{ price }}
+    </center>
+    </div>
+
+    <center>
+    <div class="dropdown" style="position: absolute; top: 10%; right:38%;
+              border: 0px solid white;">
+
+
+      <button  class="button" style="z-index:-1;" >Select Language<span class="caret"></span></button>
+      <div class="dropdown-content" align="left" style="min-width:100px; background-color: #ffffff; z-index: -1;">
+
+          <a class="drop" style="text-decoration: none;" href="#">🇩🇰 Dansk</a>
+          <a class="drop" style="text-decoration: none;" href="#">🇬🇧 English</a>
+          <a class="drop" style="text-decoration: none;" href="#">🇩🇪 Deutsch</a>
+
+      </div>
+
+    </div>
+    </center>
+    <div class="container-fluid" style="position: absolute; top: 15%; right: 0%;
+          height:85%; width: 95%; overflow: scroll; border: 0px solid gray;">
+
+             {{ summary|linebreaks }}
+
+
+
+        <img src="/static/{{ oversigt }}" alt="/static/{{ oversigt }}"
+            width='95%' style="display: inline-block; border-radius: 1%;border: 0px solid #73AD21;">
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

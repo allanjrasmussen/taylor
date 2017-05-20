@@ -1,0 +1,15 @@
+{% block content %}
+
+<div class="container-fluid" style="position: absolute;  left: 1%; height:75%; width: 15%; overflow: scroll; border: 0px solid gray;">
+<small><a style="text-decoration: none; color:gray;" href="{% url 'measurements' %}">My Measurement</a></small><br>
+<small><a style="text-decoration: none; color:gray;" href="{% url 'meas2' %}">My Custommer records</a></small><br>
+<small><a style="text-decoration: none; color:gray;" href="#">My Purchases</a></small><br>
+<small><a style="text-decoration: none; color:gray;" href="{% url 'person' %}">My Details</a></small><br>
+<div class="container-fluid" style="position: absolute;  left: 0%; height:100%; width: 100%; overflow: scroll; border: 0px solid gray;">
+<small>
+
+<p>input name etc.</p>
+</small>
+</div>
+</div>
+{% endblock %}

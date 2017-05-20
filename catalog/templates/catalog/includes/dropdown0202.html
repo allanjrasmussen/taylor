@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+</style>
+<div class="dropdown">
+  <button type="button" class="button">VARIATIONS OF BASIC<i style="font-size:16px; color:gray;" class="fa">&#xf0d7;</i></button>
+  <ul class="dropdown-menu" align="left">
+    <small>
+    <li><a class="drop"  style="text-decoration: none;" href="">VIEW ALL	</a></li>
+    <li class="dropdown-submenu">
+      <a class="drop"  style="text-decoration: none;" href="">OUTERWEAR<i style="font-size:16px; color:gray;" class="fa">&#xf0d7;</i></a>
+      <ul class="dropdown-submenu">
+          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+      </ul>
+    </li>
+    <a class="drop"  style="text-decoration: none;" href="">DRESSES<i style="font-size:16px; color:gray;" class="fa">&#xf0d7;</i></a>
+    <a class="drop"  style="text-decoration: none;" href="">SHIRTS & SWEATSHIRTS<i style="font-size:16px; color:gray;" class="fa">&#xf0d7;</i></a>
+    <a class="drop"  style="text-decoration: none;" href="">TROUSERS<i style="font-size:16px; color:gray;" class="fa">&#xf0d7;</i></a>
+    <a class="drop"  style="text-decoration: none;" href="">SKIRTS	<i style="font-size:16px; color:gray;" class="fa">&#xf0d7;</i></a>
+  </small>
+  </ul>
+</div>
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>

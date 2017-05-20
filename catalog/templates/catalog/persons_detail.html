@@ -1,0 +1,130 @@
+{% extends "base_user.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/modal_img.css' %}">
+
+
+
+
+
+<div class="container-fluid" style="position: absolute; top: 20%; left: 18%; height:75%; width: 81%; overflow: scroll; border: 0px solid gray;">
+
+
+<form class="" action="{% url 'klient_gemt' %}" method="post">
+{% csrf_token %}
+
+  <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+      <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+          UCC:
+      </div>
+      <div class="container-fluid" style="position: absolute; left: 4%;  width: 70%; ">
+          <input type="text" name="ucc" value="{{ persons.ucc }} "  style="position: relative; left: 1px; width: 40px; text-align: right;" />
+          cm<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+    </div>
+    <div class="container-fluid" style="position: absolute; left: 14%;  width: 70%; ">
+        <img src="/static/media/01ov.jpg" alt="Overvidde" width="15px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"  >
+      </div>
+  </div>
+
+  <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+      <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+          BC:
+      </div>
+      <div class="container-fluid" style="position: absolute; left: 4%;  width: 70%; ">
+          <input type="text" name="bc" value="{{ persons.bc }} "  style="position: relative; left: 1px; width: 40px; text-align: right;"> cm
+      </div>
+      <div class="container-fluid" style="position: absolute; left: 14%;  width: 70%; ">
+        <img src="/static/media/02bv.jpg" alt="Overvidde" width="15px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor"  >
+      </div>
+  </div>
+  <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+      <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+          BD:
+      </div>
+      <div class="container-fluid" style="position: absolute; left: 4%;  width: 70%; ">
+          <input type="text" name="bd" value="{{ persons.bd }} "  style="position: relative; left: 1px; width: 40px; text-align: right;"> cm
+      </div>
+
+  <div class="container-fluid" style="position: absolute; left: 14%;  width: 70%; ">
+
+    <img src="/static/media/03emv.jpg" alt="Overvidde" width="15px" onclick="openModal();currentSlide(3)" class="hover-shadow cursor"  >
+
+  </div>
+  </div>
+  <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+      <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+          WC:
+      </div>
+      <div class="container-fluid" style="position: absolute; left: 4%;  width: 70%; ">
+          <input type="text" name="wc" value="{{ persons.wc }} "  style="position: relative; left: 1px; width: 40px; text-align: right;"> cm
+      </div>
+
+  <div class="container-fluid" style="position: absolute; left: 14%;  width: 70%; ">
+
+    <img src="/static/media/04emh.jpg" alt="Overvidde" width="15px" onclick="openModal();currentSlide(4)" class="hover-shadow cursor"  >
+
+  </div>
+  </div>
+  <div class="container-fluid" style=" left: 0%; height: 20px; width: 100%;  border: 0px solid gray;">
+      <div class="container-fluid" style="position: absolute; left: 0%;  width: 30%; ">
+          HC1:
+      </div>
+      <div class="container-fluid" style="position: absolute; left: 4%;  width: 70%; ">
+          <input type="text" name="hc1" value="{{ persons.hc1 }} "  style="position: relative; left: 1px; width: 40px; text-align: right;"> cm
+      </div>
+      <div class="container-fluid" style="position: absolute; left: 14%;  width: 70%; ">
+
+        <img src="/static/media/05tv.jpg" alt="Overvidde" width="15px" onclick="openModal();currentSlide(5)" class="hover-shadow cursor"  >
+
+      </div>
+  </div>
+  <div class="container-fluid" style="position: fixed; top: 15%; left: 18%; height:4%; width: 80%; overflow: scroll; border: 0px solid gray;">
+  <input type="text" name="pk" value="{{ persons.pk }}" hidden/>
+  <input type="text" name="name" value="{{ persons.name}}" hidden/>
+   {{ persons.name }}  <input type="submit" value="Save measurements" onclick="closeModal()" style=" width:60%; font-size: 100%;"/>
+
+  </div>
+
+</form>
+</div>
+
+
+<div id="myModal" class="modal" onclick="closeModal()">
+  <span class="close cursor" onclick="closeModal()" >&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <img src="{% static 'media/01ov.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="{% static 'media/02bv.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="{% static 'media/03emv.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="{% static 'media/04emh.jpg' %}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="{% static 'media/05tv.jpg' %}" style="width:100%">
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src="{% static 'js/modal_img.js' %}">
+
+</script>
+
+{% endblock %}

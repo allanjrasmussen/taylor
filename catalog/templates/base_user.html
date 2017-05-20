@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load staticfiles %}
+    <title>Taylor Catalog</title>
+  <meta charset="iso-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'css/ajr.css' %}">
+</head>
+
+<body>
+
+
+      {% include 'catalog/includes/top-navbar.html' %}
+      {% include 'catalog/includes/menu-navbar.html' %}
+
+<div class="container-fluid" style="position: absolute; top: 20%; left: 1%; height:25%; width: 16%; overflow: scroll; border: 0px solid gray;">
+{% include 'navgoco.html' %}
+<small><a style="text-decoration: none; color:gray;" href="{% url 'measurements' %}">My Measurement</a></small><br>
+<small><a style="text-decoration: none; color:gray;" href="{% url 'clients' %}">My Custommer records</a></small><br>
+<small><a style="text-decoration: none; color:gray;" href="{% url 'purchases' %}">My Purchases</a></small><br>
+<small><a style="text-decoration: none; color:gray;" href="{% url 'profile' %}">My Details</a></small><br>
+
+</div>
+
+      {% block content %}{% endblock %}
+
+{% block pagination %}
+  {% if is_paginated %}
+      <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+          </span>
+      </div>
+  {% endif %}
+{% endblock %}
+
+
+    </div>
+{% include 'catalog/includes/footer.html' %}
+  </div>
+
+</body>
+</html>

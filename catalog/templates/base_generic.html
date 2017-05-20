@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    {% block title %}<title>Taylor Catalog</title>{% endblock %}
+
+
+  <meta charset="iso-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/modal_img.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{% static 'css/ajr.css' %}">
+</head>
+
+<body>
+
+  <div class="header">
+{% include 'catalog/includes/top-navbar.html' %}
+{% include 'catalog/includes/menu-navbar.html' %}
+</div>
+
+      {% block content %}{% endblock %}
+
+{% block pagination %}
+  {% if is_paginated %}
+      <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+          </span>
+      </div>
+  {% endif %}
+{% endblock %}
+
+
+    <div class="footer">
+{% include 'catalog/includes/footer.html' %}
+  </div>
+
+</body>
+</html>

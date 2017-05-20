@@ -1,0 +1,68 @@
+{% extends "base_user.html" %}
+
+{% block content %}
+
+<style media="screen">
+	input {
+			width: 250px;
+
+		}
+</style>
+<div class="container-fluid" style="position: absolute; top: 20%; left: 17%; height:75%; width: 81%; overflow: scroll; border: 1px solid gray;">
+
+
+    <h4  style="position: relative; left: 40%">New client</h4>
+
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+
+    <form action="" method="post">
+        <div class="field" style="position: relative; left: 40%">
+            {{ form.user.errors }}
+
+            {{ form.user }}
+        </div>
+
+        <div class="field" style="position: relative; left: 30%; width: 30%">
+            {{ form.name.errors }}
+            <label for="id_name">Name:</label>
+
+          <div style="position: absolut; left: 60%;">  {{ form.name }} </div>
+        </div>
+
+        <div class="field" style="position: relative; left: 30%">
+            {{ form.email.errors }}
+            <label for="id_email">e-mail:</label>
+            <div style="position: absolut; left: 60%;">{{ form.email }} </div>
+        </div>
+        <div class="field" style="position: relative; left: 30%">
+            {{ form.phone.errors }}
+            <label for="id_name">Phone:</label>
+            <div style="position: absolut; left: 60%;">{{ form.phone }} </div>
+        </div>
+        <div class="field" style="position: relative; left: 30%">
+            {{ form.address.errors }}
+            <label for="id_address">Address:</label>
+            <div style="position: absolut; left: 60%;">{{ form.address }} </div>
+        </div>
+        <div class="field" style="position: relative; left:30%">
+            {{ form.zip.errors }}
+            <label for="id_zip">Zip:</label>
+            <div style="position: absolut; left: 60%;">{{ form.zip }} </div>
+        </div>
+        <div class="field" style="position: relative; left: 30%">
+            {{ form.city.errors }}
+            <label for="id_city">city:</label>
+            <div style="position: absolut; left: 30%;">{{ form.city }} </div>
+        </div>
+        {% csrf_token %}
+        <input type="submit" value="Submit" style="position: relative; left: 30%">
+    </form>
+
+
+    	</div>
+
+    {% endblock %}

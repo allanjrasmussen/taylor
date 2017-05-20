@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="container-fluid" style=" left: 10%; height: 20px; width: 100%;  border: 0px solid gray;">
+    <div class="container-fluid" style="position: absolute; left: 41%;  width: 100%; ">
+            {{ field.label_tag }}
+    </div>
+    <div class="container-fluid" style="position: absolute; left: 52%;  width: 100%; ">
+            {{ field }}<small>{{ field.help_text }}</small>
+    </div>
+  </div>
+    {% endfor %}
+    <div class="container-fluid" style="position: absolute; left: 41%;  width: 100%; ">
+    <br><input type="submit" value="Create new user account" style="width: 270px"/>
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base_user.html" %}
+
+{% block content %}
+
+
+
+<div class="container-fluid" style="position: absolute; top: 30%; left: 1%; height:55%; width: 16%; overflow: scroll; border: 0px solid gray;">
+	<small>
+
+	<p>Create your customers with their measurements in your customer records and get
+		their measurements directly into your instructions.
+Once you have created a customer you will see a complete list of the measurements
+being used in the instructions on the basic blocks.
+You can choose to take all of the measurements of your customer and enter them in
+the table right away, or you can wait to take the measurements until you need them
+for a particular basic block. Some of the measurements appear in several instructions,
+but when you have entered a measurement it is stored in the table in the customer
+records and you should only take the same measurement once.
+
+	</p>
+	<p>Click on the question mark if you are in doubt about how the various
+	measurements is taken, or see the full instruction in the menu Studio
+	How to take measurements</p>
+	</small>
+</div>
+
+
+<div class="container-fluid" style="position: absolute; top: 15%; left: 18%; height:4%; width: 80%; overflow: scroll; border: 0px solid gray;">
+<h3><a style="text-decoration: none; color:gray;" href="{% url 'person' %}">+ Add new customer</a></h3>
+
+</div>
+
+<div class="container-fluid" style="position: absolute; top: 20%; left: 17%; height:75%; width: 81%; overflow: scroll; border: 0px solid gray;">
+
+
+
+
+	      {% for clients in queryset  %}
+
+				<div class="container-fluid" style="position: relative;  left: 1%; height: 5%; width: 98%; overflow: scroll; border: 1px solid gray;">
+					<center>
+						<a href="{% url 'client-detail' clients.pk %}">Name: {{ clients.name }}</a>
+	        <br>e-mail: {{ clients.email }}
+
+				</center>
+			</div>
+	        {% if not forloop.last %} {% endif %}
+
+	      {% endfor %}
+
+
+
+
+
+	</div>
+
+{% endblock %}

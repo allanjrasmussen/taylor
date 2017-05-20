@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load staticfiles %}
+  <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  <meta charset="iso-8859-1">
+    <link rel="stylesheet" href="{% static 'css/ajr.css' %}">
+  <title>Cut Up Studio Login</title>
+</head>
+
+
+<body>
+
+	<div class="header">
+    {% include 'catalog/includes/top-navbar.html' %}
+    {% include 'catalog/includes/menu-navbar.html' %}
+  </div>
+
+<header>    <!-- h1>Cut Up Studio Login</h1 -->
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+      <a href="{% url 'login' %}"></a>
+
+
+    {% endif %}
+</header>
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <a href="{% url 'password_reset_form' %}">Forgotten Password?</a></div>
+  <hr>
+<center>
+	{% include 'catalog/includes/footer.html' %}
+
+</body>
+</html>

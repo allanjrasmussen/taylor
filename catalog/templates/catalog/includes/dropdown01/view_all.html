@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container-fluid" style="position: absolute;  top: 15%; left: 1%; height:75%; width: 20%; overflow: scroll; border: 0px solid gray;">
+
+<small>
+{% for pattern in queryset  %}
+    <h3>{{ pattern.title }}</h3> {{ pattern.summary|linebreaks }}
+{% endfor %}
+</small>
+
+</div>
+<div class="container-fluid" style="position: absolute; top: 15%; left: 22%; height:75%; width: 75%; overflow: scroll; border: 1px solid gray;">
+		<center>
+      {% for pattern in queryset  %}
+        {% for pic in pattern.illustration.all %}
+        <figure style=" float: left; width: {{ width }};  margin: 5px; border: 0px solid #73AD21;%;">
+        <img src="/static/media/{{ pic.picture.url }}" alt="/static/media/{{ pic.picture.url }}"
+            width='95%' style="display: inline-block; border-radius: 10%;border: 0px solid #73AD21;">
+        <figcaption>{{ pic.name }}</figcaption>
+        {{ about|linebreaks }}
+        </figure>
+        {% if not forloop.last %} {% endif %}{% endfor %}
+
+      {% endfor %}
+
+		</center>
+</div>
+{% endblock %}

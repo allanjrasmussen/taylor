@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="position: absolute;  top: 25%; left: 40%; height:75%; width: 20%; overflow: scroll; border: 0px solid gray;">
+  <h6>Login</h6>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  <a href="{% url 'password_reset_form' %}">Forgotten Password?</a>
+</div>
+{% endblock %}
